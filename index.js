@@ -63,10 +63,10 @@ async function run() {
 }
 
 
-client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    client.close();
-});
+// client.connect(err => {
+//     const collection = client.db("test").collection("devices");
+//     client.close();
+// });
 
 run().catch(console.dir);
 app.listen(port, () => {
