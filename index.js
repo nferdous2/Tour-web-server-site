@@ -61,8 +61,6 @@ async function run() {
         // await client.close();
     }
 }
-
-
 run().catch(console.dir);
 app.listen(port, () => {
     console.log('Running ', port);
