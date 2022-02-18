@@ -41,15 +41,13 @@ async function run() {
             console.log('orders')
             res.json(orders);
         });
-        //add booking
-        app.post('/addBooking', async (req, res) => {
-            const service = req.body;
-            console.log('post api', service);
-            const result = await servicesCollection.insertOne(service);
+        //post orders
+        app.post('/orders', async (req, res) => {
+            const orders = req.body;
+            const result = await addOrdersCollection.insertOne(orders);
             console.log(result);
             res.json(result)
         });
-        //delete booking api
         app.delete('/services/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
