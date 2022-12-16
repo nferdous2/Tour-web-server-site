@@ -12,14 +12,12 @@ const port = process.env.PORT || 8000;
 app.get('/', (req, res) => {
     res.send('Running Tour server')
 });
-
 async function run() {
     try {
         await client.connect();
         const database = client.db("tour-web");
         const servicesCollection = database.collection("services");
         const addOrdersCollection = database.collection("orders");
-
         // get api
         app.get('/services', async (req, res) => {
             const cursor = servicesCollection.find({});
