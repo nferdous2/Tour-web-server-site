@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.yhxur.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 app.get('/', (req, res) => {
     res.send('Running Tour server')
 });
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 async function run() {
     try {
         await client.connect();
-        const database = client.db("tourUser");
+        const database = client.db("tour-web");
         const servicesCollection = database.collection("services");
         const addOrdersCollection = database.collection("orders");
 
